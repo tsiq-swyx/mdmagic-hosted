@@ -7,7 +7,10 @@ class LambdaDemo extends Component {
 	state = { raw: 'please type some stuff', text: '' };
 
 	handleRaw = e => {
-		this.setState(() => ({ raw: e.target.value }));
+		console.log('debug', e.target);
+		if (e.target) {
+			this.setState(() => ({ raw: e.target.value }));
+		}
 	};
 	convertRaw = e => {
 		fetch('/.netlify/functions/hello', {
