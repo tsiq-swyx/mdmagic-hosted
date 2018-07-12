@@ -9,7 +9,7 @@ class LambdaDemo extends Component {
 	handleRaw = e => {
 		console.log('debug', e.target);
 		if (e.target) {
-			this.setState(() => ({ raw: e.target.value }));
+			this.setState({ raw: e.target.value });
 		}
 	};
 	convertRaw = e => {
