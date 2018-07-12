@@ -6,12 +6,11 @@ import './App.css';
 class LambdaDemo extends Component {
 	state = { raw: 'please type some stuff', text: '' };
 
+	// works
 	handleRaw = e => {
-		console.log('debug', e.target);
-		if (e.target) {
-			this.setState({ raw: e.target.value });
-		}
+		this.setState({ raw: e.target.value });
 	};
+
 	convertRaw = e => {
 		fetch('/.netlify/functions/hello', {
 			method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -38,32 +37,10 @@ class LambdaDemo extends Component {
 
 	render() {
 		const { text, raw } = this.state;
-
+		console.log({ raw, text });
 		return (
 			<p>
-				<Textarea
-					// initialValue={`
-					// Type some *markdown* here!
-					// <!-- AUTO-GENERATED-CONTENT:START (TOC) -->
-					// toc will be generated here
-					// <!-- AUTO-GENERATED-CONTENT:END -->
-					// # hello world
-
-					// ## good morning
-
-					// ## good afternoon
-
-					// ## good night
-
-					// `}
-
-					value={raw}
-					minRows={3}
-					maxRows={6}
-					buttonText="Magic!"
-					onChange={this.handleRaw}
-					value=""
-				/>
+				<Textarea defaultValue={raw} minRows={3} maxRows={6} onChange={this.handleRaw} />
 				<p>{text}</p>
 				<button onClick={this.convertRaw}> lskjd</button>
 			</p>
